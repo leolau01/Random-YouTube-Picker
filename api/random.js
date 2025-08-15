@@ -62,7 +62,7 @@ export default async function handler(req, res) {
     const data = await r.json();
 
     const cutoff = new Date(publishedAfter).getTime();
-    const MIN_SECONDS = 61; // <- exclude most Shorts
+    const MIN_SECONDS = 180; // <- exclude most Shorts
 
     return (data.items || []).filter(v => {
       const views = Number(v.statistics?.viewCount || 0);
